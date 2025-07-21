@@ -1,0 +1,225 @@
+SCENARIO: GET User List
+METHOD: GET
+REQUEST HEADERS:
+Content-Type: application/json
+QUERY PARAMS:
+page=2
+FORM DATA:
+
+COOKIES:
+
+REQUEST BODY:
+
+URL: https://reqres.in/api/users
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+RESPONSE CODE: 200
+TIME TAKEN: 2728 ms
+RESPONSE HEADERS:
+Date: Sat, 19 Jul 2025 13:13:30 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Content-Encoding: gzip
+Access-Control-Allow-Origin: *
+Etag: W/"440-ZjsmMKR8P3usr2uJZbOCGCxC3Uw"
+Nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+Ratelimit-Limit: 100
+Ratelimit-Policy: 100;w=60
+Ratelimit-Remaining: 98
+Ratelimit-Reset: 60
+Referrer-Policy: strict-origin-when-cross-origin
+Report-To: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=pEYfMlArQalJTNmifqmh1iqBHxQ%2BFpqHmwQT4o4lxi8%3D\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\u0026ts=1752925393"}],"max_age":3600}
+Reporting-Endpoints: heroku-nel="https://nel.heroku.com/reports?s=pEYfMlArQalJTNmifqmh1iqBHxQ%2BFpqHmwQT4o4lxi8%3D&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&ts=1752925393"
+Via: 1.1 heroku-router
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Request-Id: ae138a06-c0ee-d4b8-b3e4-e99e78807ce2
+X-Xss-Protection: 1; mode=block
+Cache-Control: max-age=14400
+CF-Cache-Status: HIT
+Age: 5417
+Vary: Accept-Encoding
+Server: cloudflare
+CF-RAY: 961a79fb3b754543-BOM
+server-timing: cfL4;desc="?proto=TCP&rtt=79215&min_rtt=22296&rtt_var=44341&sent=7&recv=7&lost=0&retrans=0&sent_bytes=3107&recv_bytes=807&delivery_rate=195371&cwnd=252&unsent_bytes=0&cid=2b08a47f90b209da&ts=283&x=0"
+RESPONSE BODY:
+{
+    "page": 2,
+    "per_page": 6,
+    "total": 12,
+    "total_pages": 2,
+    "data": [
+        {
+            "id": 7,
+            "email": "michael.lawson@reqres.in",
+            "first_name": "Michael",
+            "last_name": "Lawson",
+            "avatar": "https://reqres.in/img/faces/7-image.jpg"
+        },
+        {
+            "id": 8,
+            "email": "lindsay.ferguson@reqres.in",
+            "first_name": "Lindsay",
+            "last_name": "Ferguson",
+            "avatar": "https://reqres.in/img/faces/8-image.jpg"
+        },
+        {
+            "id": 9,
+            "email": "tobias.funke@reqres.in",
+            "first_name": "Tobias",
+            "last_name": "Funke",
+            "avatar": "https://reqres.in/img/faces/9-image.jpg"
+        },
+        {
+            "id": 10,
+            "email": "byron.fields@reqres.in",
+            "first_name": "Byron",
+            "last_name": "Fields",
+            "avatar": "https://reqres.in/img/faces/10-image.jpg"
+        },
+        {
+            "id": 11,
+            "email": "george.edwards@reqres.in",
+            "first_name": "George",
+            "last_name": "Edwards",
+            "avatar": "https://reqres.in/img/faces/11-image.jpg"
+        },
+        {
+            "id": 12,
+            "email": "rachel.howell@reqres.in",
+            "first_name": "Rachel",
+            "last_name": "Howell",
+            "avatar": "https://reqres.in/img/faces/12-image.jpg"
+        }
+    ],
+    "support": {
+        "url": "https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral",
+        "text": "Tired of writing endless social media content? Let Content Caddy generate it for you."
+    }
+}
+=========================================================================
+SCENARIO: Create User
+METHOD: POST
+REQUEST HEADERS:
+Content-Type: application/json
+QUERY PARAMS:
+
+FORM DATA:
+
+COOKIES:
+
+REQUEST BODY:
+{"name": "morpheus", "job": "leader"}
+URL: https://reqres.in/api/users
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+RESPONSE CODE: 401
+TIME TAKEN: 337 ms
+RESPONSE HEADERS:
+Date: Sat, 19 Jul 2025 13:13:32 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 72
+Connection: keep-alive
+CF-RAY: 961a7a0a09c1493c-BOM
+Access-Control-Allow-Origin: *
+Etag: W/"48-+Z5A4MsbyryWjwqUCtZ7548heDc"
+Nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+Ratelimit-Limit: 100
+Ratelimit-Policy: 100;w=60
+Ratelimit-Remaining: 99
+Ratelimit-Reset: 60
+Referrer-Policy: strict-origin-when-cross-origin
+Report-To: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=yl6lfCfDWYQyNyJrBUX3mOkT1jrVINW2K4TrfIqGzLQ%3D\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\u0026ts=1752930812"}],"max_age":3600}
+Reporting-Endpoints: heroku-nel="https://nel.heroku.com/reports?s=yl6lfCfDWYQyNyJrBUX3mOkT1jrVINW2K4TrfIqGzLQ%3D&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&ts=1752930812"
+Via: 1.1 heroku-router
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Request-Id: c621f1bd-a719-f77d-65ed-135b0680f814
+X-Xss-Protection: 1; mode=block
+cf-cache-status: DYNAMIC
+Server: cloudflare
+server-timing: cfL4;desc="?proto=TCP&rtt=20374&min_rtt=20374&rtt_var=10187&sent=6&recv=6&lost=0&retrans=1&sent_bytes=3310&recv_bytes=858&delivery_rate=74060&cwnd=253&unsent_bytes=0&cid=fad1bf33c7cef667&ts=244&x=0"
+RESPONSE BODY:
+{
+    "error": "Missing API key.",
+    "how_to_get_one": "https://reqres.in/signup"
+}
+=========================================================================
+SCENARIO: Update User
+METHOD: PUT
+REQUEST HEADERS:
+Content-Type: application/json
+QUERY PARAMS:
+
+FORM DATA:
+
+COOKIES:
+
+REQUEST BODY:
+{"name": "morpheus", "job": "zion resident"}
+URL: https://reqres.in/api/users/2
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+RESPONSE CODE: 401
+TIME TAKEN: 414 ms
+RESPONSE HEADERS:
+Date: Sat, 19 Jul 2025 13:13:35 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 72
+Connection: keep-alive
+CF-RAY: 961a7a188bc64445-BOM
+Access-Control-Allow-Origin: *
+Etag: W/"48-+Z5A4MsbyryWjwqUCtZ7548heDc"
+Nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+Ratelimit-Limit: 100
+Ratelimit-Policy: 100;w=60
+Ratelimit-Remaining: 98
+Ratelimit-Reset: 58
+Referrer-Policy: strict-origin-when-cross-origin
+Report-To: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=CFr9tx5MSkuoaUiAwoqf6aPTKyudx%2BpSnR%2BcfmFPkJc%3D\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\u0026ts=1752930815"}],"max_age":3600}
+Reporting-Endpoints: heroku-nel="https://nel.heroku.com/reports?s=CFr9tx5MSkuoaUiAwoqf6aPTKyudx%2BpSnR%2BcfmFPkJc%3D&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&ts=1752930815"
+Via: 1.1 heroku-router
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Request-Id: 0dd8122e-1347-fd4b-e8a5-3437aa6c35fe
+X-Xss-Protection: 1; mode=block
+CF-Cache-Status: DYNAMIC
+Vary: Accept-Encoding
+Server: cloudflare
+server-timing: cfL4;desc="?proto=TCP&rtt=21323&min_rtt=21221&rtt_var=8162&sent=5&recv=6&lost=0&retrans=0&sent_bytes=3105&recv_bytes=866&delivery_rate=197640&cwnd=252&unsent_bytes=0&cid=ad4fe7ae68d441eb&ts=340&x=0"
+RESPONSE BODY:
+{
+    "error": "Missing API key.",
+    "how_to_get_one": "https://reqres.in/signup"
+}
+=========================================================================
+SCENARIO: Partial Update
+METHOD: PATCH
+REQUEST HEADERS:
+Content-Type: application/json
+QUERY PARAMS:
+
+FORM DATA:
+
+COOKIES:
+
+REQUEST BODY:
+{"job": "zion leader"}
+URL: https://reqres.in/api/users/2
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+RESPONSE CODE: 401
+TIME TAKEN: 553 ms
+RESPONSE HEADERS:
+Date: Sat, 19 Jul 2025 13:13:37 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 72
+Connection: keep-alive
+CF-RAY: 961a7a27abd28584-BOM
+Access-Control-Allow-Origin: *
+Etag: W/"48-+Z5A4MsbyryWjwqUCtZ7548heDc"
+Nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+Ratelimit-Limit: 100
+Ratelimit-Policy: 100;w=60
+Ratelimit-Remaining: 97
+Ratelimit-Reset: 56
+Referrer-Policy: strict-origin-when-cross-origin
+Report-To: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=cXvJ9LbKdwgJLEbYwBrPSUa8zoncd0e9EYEbVOKe248%3D\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\u0026ts=1752930817"}],"max_age":3600}
+Reporting-Endpoints: heroku-nel="https://nel.heroku.com/re

@@ -1,0 +1,163 @@
+{
+  "item": [
+    {
+      "item": [{
+        "request": {
+          "method": "DELETE",
+          "header": [{
+            "value": "application/json",
+            "key": "Content-Type"
+          }],
+          "url": {
+            "path": [
+              "api",
+              "users",
+              "2"
+            ],
+            "host": [
+              "reqres",
+              "in"
+            ],
+            "raw": "https://reqres.in/api/users/2"
+          }
+        },
+        "name": "Delete User"
+      }],
+      "name": "DELETE"
+    },
+    {
+      "item": [
+        {
+          "request": {
+            "method": "POST",
+            "header": [{
+              "value": "application/json",
+              "key": "Content-Type"
+            }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"morpheus\", \"job\": \"leader\"}"
+            },
+            "url": {
+              "path": [
+                "api",
+                "users"
+              ],
+              "host": [
+                "reqres",
+                "in"
+              ],
+              "raw": "https://reqres.in/api/users"
+            }
+          },
+          "name": "Create User"
+        },
+        {
+          "request": {
+            "method": "POST",
+            "header": [{
+              "value": "multipart/form-data",
+              "key": "Content-Type"
+            }],
+            "url": {
+              "path": ["post"],
+              "host": [
+                "postman-echo",
+                "com"
+              ],
+              "raw": "https://postman-echo.com/post"
+            }
+          },
+          "name": "Upload File"
+        }
+      ],
+      "name": "POST"
+    },
+    {
+      "item": [{
+        "request": {
+          "method": "GET",
+          "header": [{
+            "value": "application/json",
+            "key": "Content-Type"
+          }],
+          "url": {
+            "path": [
+              "api",
+              "users"
+            ],
+            "host": [
+              "reqres",
+              "in"
+            ],
+            "raw": "https://reqres.in/api/users"
+          }
+        },
+        "name": "GET User List"
+      }],
+      "name": "GET"
+    },
+    {
+      "item": [{
+        "request": {
+          "method": "PATCH",
+          "header": [{
+            "value": "application/json",
+            "key": "Content-Type"
+          }],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"job\": \"zion leader\"}"
+          },
+          "url": {
+            "path": [
+              "api",
+              "users",
+              "2"
+            ],
+            "host": [
+              "reqres",
+              "in"
+            ],
+            "raw": "https://reqres.in/api/users/2"
+          }
+        },
+        "name": "Partial Update"
+      }],
+      "name": "PATCH"
+    },
+    {
+      "item": [{
+        "request": {
+          "method": "PUT",
+          "header": [{
+            "value": "application/json",
+            "key": "Content-Type"
+          }],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"morpheus\", \"job\": \"zion resident\"}"
+          },
+          "url": {
+            "path": [
+              "api",
+              "users",
+              "2"
+            ],
+            "host": [
+              "reqres",
+              "in"
+            ],
+            "raw": "https://reqres.in/api/users/2"
+          }
+        },
+        "name": "Update User"
+      }],
+      "name": "PUT"
+    }
+  ],
+  "info": {
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "name": "GeneratedCollection"
+  }
+}

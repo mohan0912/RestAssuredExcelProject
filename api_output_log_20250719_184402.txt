@@ -1,0 +1,287 @@
+SCENARIO: GET User List
+METHOD: GET
+REQUEST HEADERS:
+Content-Type: application/json
+QUERY PARAMS:
+page=2
+FORM DATA:
+
+COOKIES:
+
+REQUEST BODY:
+
+URL: https://reqres.in/api/users
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+RESPONSE CODE: 401
+TIME TAKEN: 1774 ms
+RESPONSE HEADERS:
+Date: Sat, 19 Jul 2025 13:14:04 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 72
+Connection: keep-alive
+CF-RAY: 961a7ad13c663a22-BOM
+Access-Control-Allow-Origin: *
+Etag: W/"48-+Z5A4MsbyryWjwqUCtZ7548heDc"
+Nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+Ratelimit-Limit: 100
+Ratelimit-Policy: 100;w=60
+Ratelimit-Remaining: 95
+Ratelimit-Reset: 28
+Referrer-Policy: strict-origin-when-cross-origin
+Report-To: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=TITKxMD9aFgR%2FxK8s0RebYC98muEAcfnIboxzgOQK3A%3D\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\u0026ts=1752930844"}],"max_age":3600}
+Reporting-Endpoints: heroku-nel="https://nel.heroku.com/reports?s=TITKxMD9aFgR%2FxK8s0RebYC98muEAcfnIboxzgOQK3A%3D&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&ts=1752930844"
+Via: 1.1 heroku-router
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Request-Id: 9a059777-8933-2ead-d668-bda5aecc070b
+X-Xss-Protection: 1; mode=block
+CF-Cache-Status: BYPASS
+Vary: Accept-Encoding
+Server: cloudflare
+server-timing: cfL4;desc="?proto=TCP&rtt=84597&min_rtt=18895&rtt_var=47869&sent=7&recv=7&lost=0&retrans=0&sent_bytes=3105&recv_bytes=807&delivery_rate=230537&cwnd=252&unsent_bytes=0&cid=de7b682e6e795fd5&ts=422&x=0"
+RESPONSE BODY:
+{
+    "error": "Missing API key.",
+    "how_to_get_one": "https://reqres.in/signup"
+}
+=========================================================================
+SCENARIO: Create User
+METHOD: POST
+REQUEST HEADERS:
+Content-Type: application/json
+QUERY PARAMS:
+
+FORM DATA:
+
+COOKIES:
+
+REQUEST BODY:
+{"name": "morpheus", "job": "leader"}
+URL: https://reqres.in/api/users
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+RESPONSE CODE: 401
+TIME TAKEN: 405 ms
+RESPONSE HEADERS:
+Date: Sat, 19 Jul 2025 13:14:07 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 72
+Connection: keep-alive
+CF-RAY: 961a7ae1cefe40e7-BOM
+Access-Control-Allow-Origin: *
+Etag: W/"48-+Z5A4MsbyryWjwqUCtZ7548heDc"
+Nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+Ratelimit-Limit: 100
+Ratelimit-Policy: 100;w=60
+Ratelimit-Remaining: 94
+Ratelimit-Reset: 26
+Referrer-Policy: strict-origin-when-cross-origin
+Report-To: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=CytvG92sfZW2orJ8oQ1taF3HlDNGSAxMl8Z%2BoDgIhpQ%3D\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\u0026ts=1752930847"}],"max_age":3600}
+Reporting-Endpoints: heroku-nel="https://nel.heroku.com/reports?s=CytvG92sfZW2orJ8oQ1taF3HlDNGSAxMl8Z%2BoDgIhpQ%3D&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&ts=1752930847"
+Via: 1.1 heroku-router
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Request-Id: fd86d9c2-2871-20fc-12d7-cddb9be18c84
+X-Xss-Protection: 1; mode=block
+cf-cache-status: DYNAMIC
+Server: cloudflare
+server-timing: cfL4;desc="?proto=TCP&rtt=22749&min_rtt=22749&rtt_var=11374&sent=6&recv=6&lost=0&retrans=1&sent_bytes=3306&recv_bytes=858&delivery_rate=43330&cwnd=253&unsent_bytes=0&cid=4192208d83279fb8&ts=316&x=0"
+RESPONSE BODY:
+{
+    "error": "Missing API key.",
+    "how_to_get_one": "https://reqres.in/signup"
+}
+=========================================================================
+SCENARIO: Update User
+METHOD: PUT
+REQUEST HEADERS:
+Content-Type: application/json
+QUERY PARAMS:
+
+FORM DATA:
+
+COOKIES:
+
+REQUEST BODY:
+{"name": "morpheus", "job": "zion resident"}
+URL: https://reqres.in/api/users/2
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+RESPONSE CODE: 401
+TIME TAKEN: 311 ms
+RESPONSE HEADERS:
+Date: Sat, 19 Jul 2025 13:14:09 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 72
+Connection: keep-alive
+CF-RAY: 961a7af00895ffa2-BOM
+Access-Control-Allow-Origin: *
+Etag: W/"48-+Z5A4MsbyryWjwqUCtZ7548heDc"
+Nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+Ratelimit-Limit: 100
+Ratelimit-Policy: 100;w=60
+Ratelimit-Remaining: 93
+Ratelimit-Reset: 24
+Referrer-Policy: strict-origin-when-cross-origin
+Report-To: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=%2BRIq%2FCgy3k%2FMAVbL3%2FiFfJ80Zyhrxu8XkThVa5A8wwA%3D\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\u0026ts=1752930849"}],"max_age":3600}
+Reporting-Endpoints: heroku-nel="https://nel.heroku.com/reports?s=%2BRIq%2FCgy3k%2FMAVbL3%2FiFfJ80Zyhrxu8XkThVa5A8wwA%3D&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&ts=1752930849"
+Via: 1.1 heroku-router
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Request-Id: 2684f4ab-0928-4d36-4082-7c8f14c18596
+X-Xss-Protection: 1; mode=block
+CF-Cache-Status: DYNAMIC
+Vary: Accept-Encoding
+Server: cloudflare
+server-timing: cfL4;desc="?proto=TCP&rtt=17624&min_rtt=17218&rtt_var=7269&sent=5&recv=6&lost=0&retrans=0&sent_bytes=3107&recv_bytes=866&delivery_rate=212799&cwnd=252&unsent_bytes=0&cid=747fdab6960fff0c&ts=193&x=0"
+RESPONSE BODY:
+{
+    "error": "Missing API key.",
+    "how_to_get_one": "https://reqres.in/signup"
+}
+=========================================================================
+SCENARIO: Partial Update
+METHOD: PATCH
+REQUEST HEADERS:
+Content-Type: application/json
+QUERY PARAMS:
+
+FORM DATA:
+
+COOKIES:
+
+REQUEST BODY:
+{"job": "zion leader"}
+URL: https://reqres.in/api/users/2
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+RESPONSE CODE: 401
+TIME TAKEN: 365 ms
+RESPONSE HEADERS:
+Date: Sat, 19 Jul 2025 13:14:11 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 72
+Connection: keep-alive
+CF-RAY: 961a7aff4a7148f8-BOM
+Access-Control-Allow-Origin: *
+Etag: W/"48-+Z5A4MsbyryWjwqUCtZ7548heDc"
+Nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+Ratelimit-Limit: 100
+Ratelimit-Policy: 100;w=60
+Ratelimit-Remaining: 92
+Ratelimit-Reset: 21
+Referrer-Policy: strict-origin-when-cross-origin
+Report-To: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=FHR234ifdciY1yNGrzQ8c2uCzYwbYieDyIDnqb%2BxyS4%3D\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\u0026ts=1752930851"}],"max_age":3600}
+Reporting-Endpoints: heroku-nel="https://nel.heroku.com/reports?s=FHR234ifdciY1yNGrzQ8c2uCzYwbYieDyIDnqb%2BxyS4%3D&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&ts=1752930851"
+Via: 1.1 heroku-router
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Request-Id: 772b0fd6-714e-af76-45b4-6ed0dec8f5f6
+X-Xss-Protection: 1; mode=block
+cf-cache-status: DYNAMIC
+Server: cloudflare
+server-timing: cfL4;desc="?proto=TCP&rtt=22564&min_rtt=22564&rtt_var=11282&sent=6&recv=6&lost=0&retrans=1&sent_bytes=3308&recv_bytes=846&delivery_rate=62086&cwnd=253&unsent_bytes=0&cid=4696bb53c7683059&ts=285&x=0"
+RESPONSE BODY:
+{
+    "error": "Missing API key.",
+    "how_to_get_one": "https://reqres.in/signup"
+}
+=========================================================================
+SCENARIO: Delete User
+METHOD: DELETE
+REQUEST HEADERS:
+Content-Type: application/json
+QUERY PARAMS:
+
+FORM DATA:
+
+COOKIES:
+
+REQUEST BODY:
+
+URL: https://reqres.in/api/users/2
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+RESPONSE CODE: 401
+TIME TAKEN: 610 ms
+RESPONSE HEADERS:
+Date: Sat, 19 Jul 2025 13:14:14 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 72
+Connection: keep-alive
+CF-RAY: 961a7b0e8cabd966-BOM
+Access-Control-Allow-Origin: *
+Etag: W/"48-+Z5A4MsbyryWjwqUCtZ7548heDc"
+Nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+Ratelimit-Limit: 100
+Ratelimit-Policy: 100;w=60
+Ratelimit-Remaining: 91
+Ratelimit-Reset: 19
+Referrer-Policy: strict-origin-when-cross-origin
+Report-To: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=6MO4O%2FbQ0l3%2FKDm2Q96z3QG6i9WlNMXIyJ5TEO8JTiE%3D\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\u0026ts=1752930854"}],"max_age":3600}
+Reporting-Endpoints: heroku-nel="https://nel.heroku.com/reports?s=6MO4O%2FbQ0l3%2FKDm2Q96z3QG6i9WlNMXIyJ5TEO8JTiE%3D&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&ts=1752930854"
+Via: 1.1 heroku-router
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Request-Id: 398f681f-6f8c-a356-caca-3b81d4a67165
+X-Xss-Protection: 1; mode=block
+cf-cache-status: DYNAMIC
+Server: cloudflare
+server-timing: cfL4;desc="?proto=TCP&rtt=102472&min_rtt=91947&rtt_var=41998&sent=5&recv=6&lost=0&retrans=0&sent_bytes=3105&recv_bytes=805&delivery_rate=47375&cwnd=252&unsent_bytes=0&cid=a0e20ff90b035c8e&ts=432&x=0"
+RESPONSE BODY:
+{
+    "error": "Missing API key.",
+    "how_to_get_one": "https://reqres.in/signup"
+}
+=========================================================================
+SCENARIO: Upload File
+METHOD: POST
+REQUEST HEADERS:
+Content-Type: multipart/form-data
+QUERY PARAMS:
+
+FORM DATA:
+
+COOKIES:
+
+REQUEST BODY:
+
+URL: https://postman-echo.com/post
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+RESPONSE CODE: 200
+TIME TAKEN: 1284 ms
+RESPONSE HEADERS:
+Date: Sat, 19 Jul 2025 13:14:17 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 749
+Connection: keep-alive
+Server: nginx
+ETag: W/"2ed-OYtBxatDsnA6vNz8ZumQ1DAjFQM"
+set-cookie: sails.sid=s%3A5Qyfss_byNISnvuWFNbM6B3xvgQt4aZc.i1pgdu87m%2Fo3fFYYa1CRZzn4eJzbv4oc59foQOIUohE; Path=/; HttpOnly
+RESPONSE BODY:
+{
+    "args": {
+        
+    },
+    "data": {
+        
+    },
+    "files": {
+        "sample.txt": "data:application/octet-stream;base64,VGhpcyBpcyBhIGRlbW8gZmlsZSBmb3IgdXBsb2FkIHRlc3QuCkxpbmUgMiBvZiBzYW1wbGUgY29udGVudC4="
+    },
+    "form": {
+        
+    },
+    "headers": {
+        "host": "postman-echo.com",
+        "x-request-start": "t1752930857.674",
+        "connection": "close",
+        "content-length": "285",
+        "x-forwarded-proto": "https",
+        "x-forwarded-port": "443",
+        "x-amzn-trace-id": "Root=1-687b9a29-616f147a453f312c35e5008d",
+        "accept": "*/*",
+        "content-type": "multipart/form-data; boundary=5n-_Sk-ZjRQylGWNOotyyLdgZvZoTQY1",
+        "user-agent": "Apache-HttpClient/4.5.13 (Java/17.0.1)",
+        "accept-encoding": "gzip,deflate"
+    },
+    "json": null,
+    "url": "https://postman-echo.com/post"
+}
+=========================================================================
