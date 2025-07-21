@@ -19,7 +19,7 @@ public class ExcelDrivenRestAssured {
     static final String EXCEL_PATH = "input.xlsx";
 
     public static void main(String[] args) throws Exception {
-        boolean RUN_MODE = true; // Default mode
+        boolean RUN_MODE = false; // Default mode
         if (args.length > 0) {
             RUN_MODE = args[0].equalsIgnoreCase("run");
         }
@@ -174,20 +174,75 @@ public class ExcelDrivenRestAssured {
 
                 request.put("url", urlObject);
 
-                List<JSONObject> headersList = Arrays.stream(rowData.getOrDefault("Headers", "").split(","))
-                        .filter(s -> s.contains("=")).map(h -> {
-                            String[] kv = h.split("=");
-                            return new JSONObject().put("key", kv[0].trim()).put("value", kv[1].trim());
-                        }).collect(Collectors.toList());
-                request.put("header", new JSONArray(headersList));
-                if (!rowData.getOrDefault("FilePath", "").isEmpty()) {
+                // In Postman export logic
+                if (!rowData.getOrDefault("Headers", "").isEmpty()) {
+                    JSONArray headerArray = new JSONArray();
+                    for (String h : rowData.get("Headers").split(",")) {
+                        String[] kv = h.split("=", 2);
+                        if (kv.length == 2) {
+                            headerArray.put(new JSONObject()
+                                    .put("key", kv[0].trim())
+                                    .put("value", kv[1].trim()));
+                        }
+                    }
+                    request.put("header", headerArray);
+                }
+
+                if (!rowData.getOrDefault("Cookies", "").isEmpty()) {
+                    JSONArray cookieArray = new JSONArray();
+                    for (String c : rowData.get("Cookies").split(",")) {
+                        String[] kv = c.split("=", 2);
+                        if (kv.length == 2) {
+                            cookieArray.put(new JSONObject()
+                                    .put("key", kv[0].trim())
+                                    .put("value", kv[1].trim()));
+                        }
+                    }
+                    request.put("cookie", cookieArray);
+                }
+
+                if (!rowData.getOrDefault("FilePath", "").isEmpty() || !rowData.getOrDefault("FormData", "").isEmpty()) {
                     JSONObject body = new JSONObject();
                     JSONArray formdata = new JSONArray();
-                    String field = rowData.getOrDefault("FileFieldName", "file");
-                    formdata.put(new JSONObject()
-                            .put("key", field)
-                            .put("type", "file")
-                            .put("src", rowData.get("FilePath")));
+
+                    // Add form-data fields
+                    String formStr = rowData.getOrDefault("FormData", "");
+                    if (!formStr.isEmpty()) {
+                        for (String f : formStr.split(",")) {
+                            String[] kv = f.split("=", 2);
+                            if (kv.length == 2) {
+                                String key = kv[0].trim();
+                                String value = kv[1].trim();
+                                if (key.startsWith("mp_")) {
+                                    formdata.put(new JSONObject()
+                                            .put("key", key.substring(3))
+                                            .put("value", value)
+                                            .put("type", "text"));
+                                } else if (key.startsWith("file_")) {
+                                    formdata.put(new JSONObject()
+                                            .put("key", key.substring(5))
+                                            .put("type", "file")
+                                            .put("src", value));
+                                } else {
+                                    formdata.put(new JSONObject()
+                                            .put("key", key)
+                                            .put("value", value)
+                                            .put("type", "text"));
+                                }
+                            }
+                        }
+                    }
+
+                    // Add default file field if specified
+                    String filePathPostman = rowData.getOrDefault("FilePath", "");
+                    if (!filePathPostman.isEmpty()) {
+                        String field = rowData.getOrDefault("FileFieldName", "file");
+                        formdata.put(new JSONObject()
+                                .put("key", field)
+                                .put("type", "file")
+                                .put("src", filePathPostman));
+                    }
+
                     body.put("mode", "formdata");
                     body.put("formdata", formdata);
                     request.put("body", body);
@@ -335,4 +390,5 @@ public class ExcelDrivenRestAssured {
             }
         }
     }
+
 }
