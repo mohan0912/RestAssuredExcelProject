@@ -1,16 +1,23 @@
 import io.restassured.RestAssured;
-import io.restassured.config.SSLConfig;
+import io.restassured.config.HttpClientConfig;
 import io.restassured.response.Response;
+import io.restassured.specification.ProxySpecification;
 import io.restassured.specification.RequestSpecification;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import javax.net.ssl.SSLContext;
 import java.io.*;
+import java.security.KeyStore;
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 import static io.restassured.RestAssured.given;
 
@@ -20,8 +27,15 @@ public class ExcelDrivenRestAssured {
 
     public static void main(String[] args) throws Exception {
         boolean RUN_MODE = false; // Default mode
+        String proxyHostArg = null;
+        String proxyPortArg = null;
+
         if (args.length > 0) {
             RUN_MODE = args[0].equalsIgnoreCase("run");
+        }
+        if (args.length > 2) {
+            proxyHostArg = args[1];
+            proxyPortArg = args[2];
         }
 
         FileInputStream fis = new FileInputStream(EXCEL_PATH);
@@ -74,10 +88,38 @@ public class ExcelDrivenRestAssured {
 
             String certPath = rowData.getOrDefault("CertPath", "");
             String certPassword = rowData.getOrDefault("CertPassword", "");
+            String certType = rowData.getOrDefault("CertType", "pkcs12");
             if (!certPath.isEmpty() && !certPassword.isEmpty()) {
-                RestAssured.config = RestAssured.config().sslConfig(SSLConfig.sslConfig().keyStore(certPath, certPassword));
+                try {
+                    KeyStore keyStore = KeyStore.getInstance(certType.toLowerCase());
+                    try (InputStream keyStoreInput = new FileInputStream(certPath)) {
+                        keyStore.load(keyStoreInput, certPassword.toCharArray());
+                    }
+                    SSLContext sslContext = SSLContext.getInstance("TLS");
+                    javax.net.ssl.KeyManagerFactory kmf = javax.net.ssl.KeyManagerFactory.getInstance(javax.net.ssl.KeyManagerFactory.getDefaultAlgorithm());
+                    kmf.init(keyStore, certPassword.toCharArray());
+                    sslContext.init(kmf.getKeyManagers(), null, new SecureRandom());
+
+                    SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(sslContext);
+                    CloseableHttpClient httpClient = HttpClients.custom().setSSLSocketFactory(socketFactory).build();
+                    RestAssured.config = RestAssured.config().httpClient(HttpClientConfig.httpClientConfig().httpClientFactory(() -> httpClient));
+                } catch (Exception e) {
+                    System.err.println("Error configuring SSL: " + e.getMessage());
+                }
             }
+
             RequestSpecification req = given();
+            // Proxy setup: args override Excel, otherwise use Excel or fallback
+            String proxyHost = proxyHostArg != null ? proxyHostArg : rowData.getOrDefault("ProxyHost", "");
+            String proxyPort = proxyPortArg != null ? proxyPortArg : rowData.getOrDefault("ProxyPort", "");
+            if (!proxyHost.isEmpty() && !proxyPort.isEmpty()) {
+                try {
+                    int port = Integer.parseInt(proxyPort);
+                    req.proxy(new ProxySpecification(proxyHost, port, "http"));
+                } catch (NumberFormatException e) {
+                    System.err.println("Invalid proxy port: " + proxyPort);
+                }
+            }
             applyAuth(req, rowData);
             Map<String, String> headersMap = addHeaders(req, rowData.get("Headers"));
             addQueryParams(req, rowData.get("QueryParams"));
